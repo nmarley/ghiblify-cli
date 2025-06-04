@@ -27,7 +27,7 @@ async function main() {
 
         const result = await processImage(imageUrl);
 
-        const outputPath = await downloadAndSaveResult(
+        const { outputPath, fileSize } = await downloadAndSaveResult(
             result.image.url,
             filename,
         );
@@ -37,9 +37,7 @@ async function main() {
         console.log(
             `📊 Dimensions: ${result.image.width}x${result.image.height}`,
         );
-        console.log(
-            `📦 Size: ${(result.image.file_size / 1024 / 1024).toFixed(1)}MB`,
-        );
+        console.log(`📦 Size: ${(fileSize / 1024 / 1024).toFixed(1)}MB`);
     } catch (error) {
         console.error(
             `❌ Error: ${error instanceof Error ? error.message : 'Unknown error'}`,

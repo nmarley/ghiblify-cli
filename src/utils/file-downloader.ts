@@ -1,10 +1,10 @@
-import { existsSync, mkdirSync } from 'node:fs';
+import { existsSync, mkdirSync, statSync } from 'node:fs';
 import { basename, dirname, extname } from 'node:path';
 
 export async function downloadAndSaveResult(
     resultUrl: string,
     originalFilename: string,
-): Promise<string> {
+): Promise<{ outputPath: string; fileSize: number }> {
     try {
         const outputDir = './output';
 
@@ -30,8 +30,11 @@ export async function downloadAndSaveResult(
         const arrayBuffer = await response.arrayBuffer();
         await Bun.write(outputFilename, arrayBuffer);
 
+        const stats = statSync(outputFilename);
+        const fileSize = stats.size;
+
         console.log(`💾 Saved: ${outputFilename}`);
-        return outputFilename;
+        return { outputPath: outputFilename, fileSize };
     } catch (error) {
         throw new Error(
             `Download failed: ${error instanceof Error ? error.message : 'Unknown error'}`,

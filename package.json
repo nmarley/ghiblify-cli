@@ -3,6 +3,8 @@
   "module": "index.ts",
   "type": "module",
   "private": true,
+  "license": "MIT",
+  "author": "Nathan Marley",
   "scripts": {
     "check": "bun --bun run tsc --noEmit",
     "dev": "NODE_ENV=development bun run --watch --no-clear-screen src/index.ts",

@@ -3,10 +3,28 @@
   "module": "index.ts",
   "type": "module",
   "private": true,
+  "scripts": {
+    "check": "bun --bun run tsc --noEmit",
+    "dev": "NODE_ENV=development bun run --watch --no-clear-screen src/index.ts",
+    "dev:worker": "NODE_ENV=development bun run --watch --no-clear-screen src/workers/index.ts",
+    "format": "bun --bun run biome check . --write --unsafe",
+    "start": "bun run src/index.ts",
+    "start:prod": "NODE_ENV=production bun run src/index.ts",
+    "start:prod:worker": "NODE_ENV=production bun run src/workers/index.ts",
+    "test": "NODE_ENV=test bun test",
+    "test:watch": "NODE_ENV=test bun test --watch",
+    "enqueue-chat-title": "bun run src/scripts/enqueueChatTitleAutoUpdate.ts",
+    "enqueue-context-embedding": "bun run src/scripts/enqueueContextChunkEmbedding.ts",
+    "final": "echo 'NO-OP: always last b/c JSON does not allow trailing commas'"
+  },
+  "dependencies": {
+    "dotenv": "^16.5.0"
+  },
   "devDependencies": {
-    "@types/bun": "latest"
+    "@biomejs/biome": "^1.9.4",
+    "@types/bun": "^1.2.15"
   },
   "peerDependencies": {
-    "typescript": "^5"
+    "typescript": "^5.8.3"
   }
 }

@@ -32,3 +32,11 @@ report.[0-9]_.[0-9]_.[0-9]_.[0-9]_.json
 
 # Finder (MacOS) folder config
 .DS_Store
+
+# ignore all this stuff
+/data
+/node_modules
+.env
+.env.*
+# ignore pg*data/ dirs (postgres data volumes)
+pg*data/

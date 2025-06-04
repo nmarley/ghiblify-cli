@@ -18,6 +18,7 @@
     "final": "echo 'NO-OP: always last b/c JSON does not allow trailing commas'"
   },
   "dependencies": {
+    "@fal-ai/client": "^1.5.0",
     "dotenv": "^16.5.0"
   },
   "devDependencies": {

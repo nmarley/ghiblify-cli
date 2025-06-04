@@ -23,11 +23,8 @@ bun index.ts <image-file>
 ### Examples
 
 ```bash
-# Process a single image
+# Process an image
 bun index.ts photo.jpg
-
-# Multiple files provided (only first will be processed)
-bun index.ts image1.jpg image2.png image3.gif
 ```
 
 ## Supported Formats

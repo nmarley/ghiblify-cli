@@ -16,7 +16,8 @@ export async function downloadAndSaveResult(
             originalFilename,
             extname(originalFilename),
         );
-        const outputFilename = `${outputDir}/ghiblified_${originalName}.png`;
+        const timestamp = new Date().toISOString().replace(/[:.]/g, '-');
+        const outputFilename = `${outputDir}/ghiblified_${originalName}_${timestamp}.png`;
 
         console.log('💾 Downloading result...');
 
